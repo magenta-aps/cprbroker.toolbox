@@ -3,10 +3,6 @@ import re
 
 __author__ = "Heini Leander Ovason"
 
-##############################################
-##### Creating a Set of pnr from n files #####
-##############################################
-
 """ NOTE: The example files indicate the expected format.
 They are simulating extracts from CPR Broker' PersonSearchCache,
 and DPR EMulation' DTTOTAL."""
