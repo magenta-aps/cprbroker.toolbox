@@ -22,29 +22,6 @@ for path in files:
 
     pnr_file.close()
 
-##############################################################
-##### Documentation on creating inddata file from 'pnrs' #####
-##############################################################
-
-# 
-# Source: Nøglestruktur.pdf
-# Reference: https://cprdocs.atlassian.net/wiki/spaces/CPR/pages/51158726/N+glestrukturer
-#
-# Struktur for Personnummer-nøgle :
-#
-#                   Længde  Startpos
-# Inddatatype       2       1           Værdi = 01
-# Opgavenr          6       3
-# Personnr          10      9
-# Nøglekonstant     15      19
-# Filler            47      34
-#
-# Recordlængde 80
-
-#################################################
-##### Creating inddata file from 'pnrs' Set #####
-#################################################
-
 koerselsdato = '180530' # e.g. 180528
 inddatatype = '01'
 opgavenummer = '139520' # The tasknr. is defined by CPR Kontoret
