@@ -63,7 +63,7 @@ noeglekonstant = '               '
 filler = '                                               '
 
 inddata_filename = 'd{}.i{}'.format(koerselsdato, opgavenummer)
-inddata_file = open(inddata_filename, 'a', newline='\n')
+inddata_file = open(inddata_filename, 'a')
 
 for personnr in pnr_list:
 
