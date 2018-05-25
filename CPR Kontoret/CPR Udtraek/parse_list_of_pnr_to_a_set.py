@@ -2,9 +2,7 @@
 ##### Creating a Set of pnr from n files #####
 ##############################################
 
-# files = ['exampe_file_01', 'exampe_file_02']
-
-files = ['CprBroker_PersonSearchCache.csv', 'DprEmulering_DTTOTAL.csv']
+files = ['exampe_file_01', 'exampe_file_02']
 
 pnrs = set()
 
@@ -21,6 +19,8 @@ for path in files:
         pnrs.add(format_line)
 
     pnr_file.close()
+
+# TODO: Set must be an ordered list, and the file format = ISO-8859-1
 
 koerselsdato = '180530' # e.g. 180528
 inddatatype = '01'
