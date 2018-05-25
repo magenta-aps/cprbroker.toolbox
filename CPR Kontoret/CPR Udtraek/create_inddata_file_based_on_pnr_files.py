@@ -58,7 +58,7 @@ are only using alphanumerical values """
 
 koerselsdato = '180530' # e.g. 180528
 inddatatype = '01'
-opgavenummer = '139520' # The tasknr. is defined by CPR Kontoret
+opgavenummer = '114352' # The tasknr. is defined by CPR Kontoret
 noeglekonstant = '               ' 
 filler = '                                               '
 
