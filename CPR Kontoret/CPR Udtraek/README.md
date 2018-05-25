@@ -24,13 +24,16 @@ There are several other values that need to be included in each line. The table 
 
 **Struktur for Personnummer-nøgle :**
 
-                Længde  Startpos
-Inddatatype     2       1           Værdi = 01
-Opgavenr        6       3
-Personnr        10      9
-Nøglekonstant   15      19
-Filler          47      34
+| Description   | Length        | Start position  | 
+| ------------- |:-------------:| ---------------:|
+| Inddatatype   | 2             | 1               | 
+| Opgavenr      | 6             | 3               |
+| Personnr      | 10            | 9               | 
+| Nøglekonstant | 15            | 19              | 
+| Filler        | 47            | 34              |
 
-Recordlængde    80
+Recordlængde = 80
+
+Inddatatype for Personnummer-nøgle = 01
 
 
