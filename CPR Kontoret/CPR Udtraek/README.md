@@ -10,7 +10,7 @@
 
 Inddatafiler have a naming standard, e.g. dÅÅMMDD.iNNNNNN
 
-YYMMDD is the date which to process the file (the file must be uploaded to the '/ind' folder on the FTP server weekdays before 12.00pm).
+ÅÅMMDD(ÅÅ<=>YY) is the date which to process the file (the file must be uploaded to the '/ind' folder on the FTP server weekdays before 12.00pm).
 NNNNNN is the task number for the task, for which the file is related to.
 
 You can read more about the different ind- and outdata formats here: https://cprdocs.atlassian.net/wiki/spaces/CPR/pages/51158404/Ind-+og+uddatafiler
