@@ -29,4 +29,11 @@ Recordlaengde = 80
 
 Inddatatype for Personnummerøgle = 01
 
+## Script
+
+**create_inddata_fle_based_on_pnr_files.py**
+
+You will need to set the path(s) to the pnr file(s) inside the script before running it.
+The inddata file will be outputtet in the same folder as the script; or wherever you define the output path.
+
 
