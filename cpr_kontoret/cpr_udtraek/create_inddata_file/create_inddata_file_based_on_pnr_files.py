@@ -8,7 +8,7 @@ They are simulating extracts from CPR Broker' PersonSearchCache,
 and DPR EMulation' DTTOTAL."""
 files = ['exampe_file_01', 'exampe_file_02']
 
-# Solely for avoiding duplicate pnr entries.
+# To avoid duplicate pnr entries.
 pnr_set = set()
 
 for path in files:
@@ -21,12 +21,11 @@ for path in files:
 
         if check_line:
             
-            # leave out potential '\n'
             formatted_line = line[0:10]
 
             pnr_set.add(formatted_line)
 
-        """If the line is 9 digits, and the file contains person numbers 
+        """If the line is 9 digits, and the file contains person number 
         from a DprEmulering.dbo.DTTOTAL then there will not be any
         leading zeros. This is because a person number is of type
         int the DPR data model."""
@@ -42,20 +41,20 @@ for path in files:
 
     pnr_file.close()
 
-# Convert to list
 pnr_list = list(pnr_set)
 
-# It is a requirement that the list is naturally sorted.
+""" NOTE: It is a requirement that the inddata lines are sorted are 
+naturally sorted. """"
+
 pnr_list.sort()
 
-""" NOTE: CPR Udtraek docs. specify that charset should 
-be ISO-8859-1 (ASCII), but this should not matter if we 
-are only using alphanumerical values """
+""" NOTE: CPR Udtraek docs. specify that charset should be ISO-8859-1 (ASCII),
+but this should not matter if we are only using alphanumerical values."""
 
-koerselsdato = '180530' # e.g. 180528
+koerselsdato = '      '
 inddatatype = '01'
-opgavenummer = '114352' # The tasknr. is defined by CPR Kontoret
-noeglekonstant = '               ' 
+opgavenummer = '      '
+noeglekonstant = '               '
 filler = '                                               '
 
 inddata_filename = 'd{}.i{}'.format(koerselsdato, opgavenummer)
@@ -65,7 +64,7 @@ for personnr in pnr_list:
 
     inddata_person = '{}{}{}{}{}\n'.format(
                                             inddatatype,
-                                            opgavenummer, 
+                                            opgavenummer,
                                             personnr,
                                             noeglekonstant,
                                             filler
