@@ -43,8 +43,7 @@ for path in files:
 
 pnr_list = list(pnr_set)
 
-""" NOTE: It is a requirement that the inddata lines are sorted are 
-naturally sorted. """"
+""" It is a requirement that the inddata lines are sorted are naturally sorted. """
 
 pnr_list.sort()
 
