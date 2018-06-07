@@ -1,7 +1,7 @@
 # path = './dÅÅMMDD.l<opgavenr>'
 path = ''
 
-su = open(path,'r')
+su = open(path, 'r')
 sux = open(path + '.cpr', 'a', newline='')
 
 for l in su:
