@@ -13,19 +13,19 @@ pnr_set = set()
 
 for path in files:
 
-    pnr_file = open(path,'r')
+    pnr_file = open(path, 'r')
 
     for line in pnr_file:
 
         check_line = re.match(r'^\d{10}$', line)
 
         if check_line:
-            
+
             formatted_line = line[0:10]
 
             pnr_set.add(formatted_line)
 
-        """If the line is 9 digits, and the file contains person number 
+        """If the line is 9 digits, and the file contains person number
         from a DprEmulering.dbo.DTTOTAL then there will not be any
         leading zeros. This is because a person number is of type
         int the DPR data model."""
@@ -37,13 +37,13 @@ for path in files:
             formatted_dpr_line = '0{}'.format(line[:9])
 
             pnr_set.add(formatted_dpr_line)
-        
 
     pnr_file.close()
 
 pnr_list = list(pnr_set)
 
-""" It is a requirement that the inddata lines are sorted are naturally sorted. """
+""" It is a requirement that the inddata lines are sorted are naturally
+sorted. """
 
 pnr_list.sort()
 
@@ -62,16 +62,13 @@ inddata_file = open(inddata_filename, 'a')
 for personnr in pnr_list:
 
     inddata_person = '{}{}{}{}{}\n'.format(
-                                            inddatatype,
-                                            opgavenummer,
-                                            personnr,
-                                            noeglekonstant,
-                                            filler
-                                            )
+        inddatatype,
+        opgavenummer,
+        personnr,
+        noeglekonstant,
+        filler
+    )
 
     inddata_file.write(inddata_person)
 
 inddata_file.close()
-
-
-   
