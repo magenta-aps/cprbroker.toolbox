@@ -17,13 +17,14 @@ persons_not_subscribed = []
 checked = 0
 sql_server_pnr_list_length = len(sql_server_pnr_list)
 print('Length of SQl Server PNR list: {}'.format(sql_server_pnr_list_length))
-time.sleep(2)
-for x in sql_server_pnr_list:
+time.sleep(3)
+for z in sql_server_pnr_list:
 
-    if x not in get_all_filters_pnr_dict:
+    if z not in get_all_filters_pnr_dict:
 
         subscribe = open('./subscribe.txt', 'a')
-        subscribe.write('{}\n'.format(x))
+        subscribe.write('{}\n'.format(z))
+        persons_not_subscribed.append(z)
 
     checked += 1
     sql_server_pnr_list_length -= 1
@@ -32,4 +33,6 @@ for x in sql_server_pnr_list:
         str(checked))
     )
 
-print('\nDone. See ./subscribe.txt')
+print('Done!\n{} persons not in subscription!\nSee ./subscribe.txt'.format(
+    str(len(persons_not_subscribed))
+))
