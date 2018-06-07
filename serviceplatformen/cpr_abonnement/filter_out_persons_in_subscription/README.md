@@ -17,7 +17,7 @@ Export all person numbers from <cpr_broker>.dbo.PersonSearchCache (and <dpr_emul
 **1111111111**<br>
 **2222222222**<br>
 
-It's recommended using the script *cprbroker.toolbox/cpr_kontoret/cpr_udtraek/inddata_file/create_inddata_file/create_inddata_file_based_on_pnr_files.py*  for this if the customer is also using DPR Emulation. The reason is that there is a list/array in the script for appending *n* paths to pnr files, and it's also able to differentiate between CPR Broker- and DPR Emulation pnr extractions, and parse a given line accordingly.
+It's recommended using the script *cprbroker.toolbox/cpr_kontoret/cpr_udtraek/inddata_file/create_inddata_file/create_inddata_file_based_on_pnr_files.py*. The reason is that there is a list/array in the script for appending *n* paths to pnr files, and it's also able to differentiate between CPR Broker- and DPR Emulation pnr extractions, and parse a given line accordingly.
 Afterwards, for each line i the "INDDATA" file you must remove "inddatatype", "opgavenummer", and the remaining white spaces, so each line is as mentioned above.
 
 Now do an extract of person numbers from CPR Abonnement at Serviceplatformen. These can be acquired by using SoapUI to call the CPR Abonnement operation GetAllFilters(). Save the person numbers in a file in the manner.
