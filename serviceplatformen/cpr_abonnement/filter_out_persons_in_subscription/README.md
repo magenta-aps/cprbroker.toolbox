@@ -13,9 +13,9 @@ If persons are not inserted into DPR Emulation using DPR Emulation Diversion the
 
 Export all person numbers from <cpr_broker>.dbo.PersonSearchCache (and <dpr_emulation>.dbo.DTTOTAL) into a collection of person numbers not containing duplicate entries, like so:
 
-0000000000
-1111111111
-2222222222
+**0000000000**
+**1111111111**
+**2222222222**
 
 It's recommended using the script *cprbroker.toolbox/cpr_kontoret/cpr_udtraek/inddata_file/create_inddata_file/create_inddata_file_based_on_pnr_files.py*  for this if the customer is also using DPR Emulation. The reason is that there is a list/array in the script for appending *n* paths to pnr files, and it's also able to differentiate between CPR Broker- and DPR Emulation pnr extractions, and parse a given line accordingly.
 Afterwards, for each line i the "INDDATA" file you must remove "inddatatype", "opgavenummer", and the remaining white spaces, so each line is as mentioned above.
