@@ -13,7 +13,7 @@ If persons are not inserted into DPR Emulation using DPR Emulation Diversion the
 
 Export all person numbers from <cpr_broker>.dbo.PersonSearchCache (and <dpr_emulation>.dbo.DTTOTAL) into a collection of person numbers not containing duplicate entries, like so:
 
-**0000000000**
+**0000000000**<br>
 **1111111111**
 **2222222222**
 
