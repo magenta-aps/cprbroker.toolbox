@@ -1,0 +1,200 @@
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <soap:Body>
+      <SearchListResponse xmlns="http://dk.itst">
+         <SoegListOutput xmlns="urn:oio:sagdok:person:1.0.0">
+            <StandardRetur xmlns="urn:oio:sagdok:2.0.0">
+               <StatusKode>200</StatusKode>
+               <FejlbeskedTekst>OK</FejlbeskedTekst>
+            </StandardRetur>
+            <LaesResultat>
+               <FiltreretOejebliksbillede>
+                  <UUID xmlns="urn:oio:dkal:1.0.0">e0c2174b-a24f-4f30-8db6-3180f902c944</UUID>
+                  <BrugervendtNoegleTekst xmlns="urn:oio:sagdok:1.0.0">1903059997</BrugervendtNoegleTekst>
+                  <AttributListe>
+                     <Egenskab>
+                        <NavnStruktur>
+                           <PersonNameStructure xmlns="http://rep.oio.dk/itst.dk/xml/schemas/2006/01/17/">
+                              <PersonGivenName xmlns="http://rep.oio.dk/ebxml/xml/schemas/dkcc/2003/02/13/">Adam</PersonGivenName>
+                              <PersonSurnameName xmlns="http://rep.oio.dk/ebxml/xml/schemas/dkcc/2003/02/13/">Jensen</PersonSurnameName>
+                           </PersonNameStructure>
+                           <PersonNameForAddressingName xmlns="http://rep.oio.dk/itst.dk/xml/schemas/2005/02/22/">Jensen,Adam</PersonNameForAddressingName>
+                        </NavnStruktur>
+                        <PersonGenderCode xmlns="http://rep.oio.dk/ebxml/xml/schemas/dkcc/2006/01/23/">male</PersonGenderCode>
+                        <BirthDate xmlns="http://rep.oio.dk/ebxml/xml/schemas/dkcc/2005/03/15/">0001-01-01</BirthDate>
+                     </Egenskab>
+                     <RegisterOplysning>
+                        <CprBorger>
+                           <PersonCivilRegistrationIdentifier xmlns="http://rep.oio.dk/cpr.dk/xml/schemas/core/2005/03/18/">1903059997</PersonCivilRegistrationIdentifier>
+                           <PersonNummerGyldighedStatusIndikator>false</PersonNummerGyldighedStatusIndikator>
+                           <NavneAdresseBeskyttelseIndikator>false</NavneAdresseBeskyttelseIndikator>
+                           <TelefonNummerBeskyttelseIndikator>false</TelefonNummerBeskyttelseIndikator>
+                           <ForskerBeskyttelseIndikator>false</ForskerBeskyttelseIndikator>
+                           <FolkeregisterAdresse>
+                              <DanskAdresse>
+                                 <UkendtAdresseIndikator>false</UkendtAdresseIndikator>
+                                 <AddressComplete xmlns="http://rep.oio.dk/xkom.dk/xml/schemas/2006/01/06/">
+                                    <AddressAccess xmlns="http://rep.oio.dk/xkom.dk/xml/schemas/2005/03/15/">
+                                       <MunicipalityCode xmlns="http://rep.oio.dk/cpr.dk/xml/schemas/core/2005/03/18/">0159</MunicipalityCode>
+                                       <StreetCode xmlns="http://rep.oio.dk/cpr.dk/xml/schemas/core/2005/03/18/">0626</StreetCode>
+                                       <StreetBuildingIdentifier xmlns="http://rep.oio.dk/ebxml/xml/schemas/dkcc/2003/02/13/">304</StreetBuildingIdentifier>
+                                    </AddressAccess>
+                                    <AddressPostal>
+                                       <StreetName xmlns="http://rep.oio.dk/ebxml/xml/schemas/dkcc/2005/03/15/">Nybrovej</StreetName>
+                                       <StreetBuildingIdentifier xmlns="http://rep.oio.dk/ebxml/xml/schemas/dkcc/2003/02/13/">304</StreetBuildingIdentifier>
+                                       <FloorIdentifier xmlns="http://rep.oio.dk/ebxml/xml/schemas/dkcc/2003/02/13/">st</FloorIdentifier>
+                                       <SuiteIdentifier xmlns="http://rep.oio.dk/ebxml/xml/schemas/dkcc/2003/02/13/">D-53</SuiteIdentifier>
+                                       <DistrictSubdivisionIdentifier xmlns="http://rep.oio.dk/ebxml/xml/schemas/dkcc/2005/03/15/"/>
+                                       <PostCodeIdentifier xmlns="http://rep.oio.dk/ebxml/xml/schemas/dkcc/2005/03/15/">2800</PostCodeIdentifier>
+                                       <CountryIdentificationCode scheme="imk" xmlns="http://rep.oio.dk/ebxml/xml/schemas/dkcc/2003/02/13/">5100</CountryIdentificationCode>
+                                    </AddressPostal>
+                                 </AddressComplete>
+                                 <SpecielVejkodeIndikator>false</SpecielVejkodeIndikator>
+                              </DanskAdresse>
+                           </FolkeregisterAdresse>
+                           <FolkekirkeMedlemIndikator>false</FolkekirkeMedlemIndikator>
+                        </CprBorger>
+                     </RegisterOplysning>
+                  </AttributListe>
+                  <TilstandListe>
+                     <LivStatus>
+                        <LivStatusKode>Foedt</LivStatusKode>
+                        <TilstandVirkning xmlns="urn:oio:sagdok:2.0.0">
+                           <FraTidspunkt>
+                              <TidsstempelDatoTid xmlns="urn:oio:sagdok:1.0.0">2017-05-15T22:02:00</TidsstempelDatoTid>
+                           </FraTidspunkt>
+                        </TilstandVirkning>
+                     </LivStatus>
+                  </TilstandListe>
+               </FiltreretOejebliksbillede>
+            </LaesResultat>
+            <LaesResultat>
+               <FiltreretOejebliksbillede>
+                  <UUID xmlns="urn:oio:dkal:1.0.0">9fd5b2aa-1c83-4ffe-a036-e38308b83a98</UUID>
+                  <BrugervendtNoegleTekst xmlns="urn:oio:sagdok:1.0.0">1903059997</BrugervendtNoegleTekst>
+                  <AttributListe>
+                     <Egenskab>
+                        <NavnStruktur>
+                           <PersonNameStructure xmlns="http://rep.oio.dk/itst.dk/xml/schemas/2006/01/17/">
+                              <PersonGivenName xmlns="http://rep.oio.dk/ebxml/xml/schemas/dkcc/2003/02/13/">Adam</PersonGivenName>
+                              <PersonSurnameName xmlns="http://rep.oio.dk/ebxml/xml/schemas/dkcc/2003/02/13/">Jensen</PersonSurnameName>
+                           </PersonNameStructure>
+                           <PersonNameForAddressingName xmlns="http://rep.oio.dk/itst.dk/xml/schemas/2005/02/22/">Jensen,Adam</PersonNameForAddressingName>
+                        </NavnStruktur>
+                        <PersonGenderCode xmlns="http://rep.oio.dk/ebxml/xml/schemas/dkcc/2006/01/23/">male</PersonGenderCode>
+                        <BirthDate xmlns="http://rep.oio.dk/ebxml/xml/schemas/dkcc/2005/03/15/">0001-01-01</BirthDate>
+                     </Egenskab>
+                     <RegisterOplysning>
+                        <CprBorger>
+                           <PersonCivilRegistrationIdentifier xmlns="http://rep.oio.dk/cpr.dk/xml/schemas/core/2005/03/18/">1903059997</PersonCivilRegistrationIdentifier>
+                           <PersonNummerGyldighedStatusIndikator>false</PersonNummerGyldighedStatusIndikator>
+                           <NavneAdresseBeskyttelseIndikator>false</NavneAdresseBeskyttelseIndikator>
+                           <TelefonNummerBeskyttelseIndikator>false</TelefonNummerBeskyttelseIndikator>
+                           <ForskerBeskyttelseIndikator>false</ForskerBeskyttelseIndikator>
+                           <FolkeregisterAdresse>
+                              <DanskAdresse>
+                                 <UkendtAdresseIndikator>false</UkendtAdresseIndikator>
+                                 <AddressComplete xmlns="http://rep.oio.dk/xkom.dk/xml/schemas/2006/01/06/">
+                                    <AddressAccess xmlns="http://rep.oio.dk/xkom.dk/xml/schemas/2005/03/15/">
+                                       <MunicipalityCode xmlns="http://rep.oio.dk/cpr.dk/xml/schemas/core/2005/03/18/">0159</MunicipalityCode>
+                                       <StreetCode xmlns="http://rep.oio.dk/cpr.dk/xml/schemas/core/2005/03/18/">0626</StreetCode>
+                                       <StreetBuildingIdentifier xmlns="http://rep.oio.dk/ebxml/xml/schemas/dkcc/2003/02/13/">304</StreetBuildingIdentifier>
+                                    </AddressAccess>
+                                    <AddressPostal>
+                                       <StreetName xmlns="http://rep.oio.dk/ebxml/xml/schemas/dkcc/2005/03/15/">Nybrovej</StreetName>
+                                       <StreetBuildingIdentifier xmlns="http://rep.oio.dk/ebxml/xml/schemas/dkcc/2003/02/13/">304</StreetBuildingIdentifier>
+                                       <FloorIdentifier xmlns="http://rep.oio.dk/ebxml/xml/schemas/dkcc/2003/02/13/">st</FloorIdentifier>
+                                       <SuiteIdentifier xmlns="http://rep.oio.dk/ebxml/xml/schemas/dkcc/2003/02/13/">D-53</SuiteIdentifier>
+                                       <DistrictSubdivisionIdentifier xmlns="http://rep.oio.dk/ebxml/xml/schemas/dkcc/2005/03/15/"/>
+                                       <PostCodeIdentifier xmlns="http://rep.oio.dk/ebxml/xml/schemas/dkcc/2005/03/15/">2800</PostCodeIdentifier>
+                                       <CountryIdentificationCode scheme="imk" xmlns="http://rep.oio.dk/ebxml/xml/schemas/dkcc/2003/02/13/">5100</CountryIdentificationCode>
+                                    </AddressPostal>
+                                 </AddressComplete>
+                                 <SpecielVejkodeIndikator>false</SpecielVejkodeIndikator>
+                              </DanskAdresse>
+                           </FolkeregisterAdresse>
+                           <FolkekirkeMedlemIndikator>false</FolkekirkeMedlemIndikator>
+                        </CprBorger>
+                     </RegisterOplysning>
+                  </AttributListe>
+                  <TilstandListe>
+                     <LivStatus>
+                        <LivStatusKode>Foedt</LivStatusKode>
+                        <TilstandVirkning xmlns="urn:oio:sagdok:2.0.0">
+                           <FraTidspunkt>
+                              <TidsstempelDatoTid xmlns="urn:oio:sagdok:1.0.0">2017-05-15T22:02:00</TidsstempelDatoTid>
+                           </FraTidspunkt>
+                        </TilstandVirkning>
+                     </LivStatus>
+                  </TilstandListe>
+               </FiltreretOejebliksbillede>
+            </LaesResultat>
+                        <LaesResultat>
+               <FiltreretOejebliksbillede>
+                  <UUID xmlns="urn:oio:dkal:1.0.0">e0c2174b-a24f-4f30-8db6-3180f902c944</UUID>
+                  <BrugervendtNoegleTekst xmlns="urn:oio:sagdok:1.0.0">1903059997</BrugervendtNoegleTekst>
+                  <AttributListe>
+                     <Egenskab>
+                        <NavnStruktur>
+                           <PersonNameStructure xmlns="http://rep.oio.dk/itst.dk/xml/schemas/2006/01/17/">
+                              <PersonGivenName xmlns="http://rep.oio.dk/ebxml/xml/schemas/dkcc/2003/02/13/">Adam</PersonGivenName>
+                              <PersonSurnameName xmlns="http://rep.oio.dk/ebxml/xml/schemas/dkcc/2003/02/13/">Jensen</PersonSurnameName>
+                           </PersonNameStructure>
+                           <PersonNameForAddressingName xmlns="http://rep.oio.dk/itst.dk/xml/schemas/2005/02/22/">Jensen,Adam</PersonNameForAddressingName>
+                        </NavnStruktur>
+                        <PersonGenderCode xmlns="http://rep.oio.dk/ebxml/xml/schemas/dkcc/2006/01/23/">male</PersonGenderCode>
+                        <BirthDate xmlns="http://rep.oio.dk/ebxml/xml/schemas/dkcc/2005/03/15/">0001-01-01</BirthDate>
+                     </Egenskab>
+                     <RegisterOplysning>
+                        <CprBorger>
+                           <PersonCivilRegistrationIdentifier xmlns="http://rep.oio.dk/cpr.dk/xml/schemas/core/2005/03/18/">1903059997</PersonCivilRegistrationIdentifier>
+                           <PersonNummerGyldighedStatusIndikator>false</PersonNummerGyldighedStatusIndikator>
+                           <NavneAdresseBeskyttelseIndikator>false</NavneAdresseBeskyttelseIndikator>
+                           <TelefonNummerBeskyttelseIndikator>false</TelefonNummerBeskyttelseIndikator>
+                           <ForskerBeskyttelseIndikator>false</ForskerBeskyttelseIndikator>
+                           <FolkeregisterAdresse>
+                              <DanskAdresse>
+                                 <UkendtAdresseIndikator>false</UkendtAdresseIndikator>
+                                 <AddressComplete xmlns="http://rep.oio.dk/xkom.dk/xml/schemas/2006/01/06/">
+                                    <AddressAccess xmlns="http://rep.oio.dk/xkom.dk/xml/schemas/2005/03/15/">
+                                       <MunicipalityCode xmlns="http://rep.oio.dk/cpr.dk/xml/schemas/core/2005/03/18/">0159</MunicipalityCode>
+                                       <StreetCode xmlns="http://rep.oio.dk/cpr.dk/xml/schemas/core/2005/03/18/">0626</StreetCode>
+                                       <StreetBuildingIdentifier xmlns="http://rep.oio.dk/ebxml/xml/schemas/dkcc/2003/02/13/">304</StreetBuildingIdentifier>
+                                    </AddressAccess>
+                                    <AddressPostal>
+                                       <StreetName xmlns="http://rep.oio.dk/ebxml/xml/schemas/dkcc/2005/03/15/">Nybrovej</StreetName>
+                                       <StreetBuildingIdentifier xmlns="http://rep.oio.dk/ebxml/xml/schemas/dkcc/2003/02/13/">304</StreetBuildingIdentifier>
+                                       <FloorIdentifier xmlns="http://rep.oio.dk/ebxml/xml/schemas/dkcc/2003/02/13/">st</FloorIdentifier>
+                                       <SuiteIdentifier xmlns="http://rep.oio.dk/ebxml/xml/schemas/dkcc/2003/02/13/">D-53</SuiteIdentifier>
+                                       <DistrictSubdivisionIdentifier xmlns="http://rep.oio.dk/ebxml/xml/schemas/dkcc/2005/03/15/"/>
+                                       <PostCodeIdentifier xmlns="http://rep.oio.dk/ebxml/xml/schemas/dkcc/2005/03/15/">2800</PostCodeIdentifier>
+                                       <CountryIdentificationCode scheme="imk" xmlns="http://rep.oio.dk/ebxml/xml/schemas/dkcc/2003/02/13/">5100</CountryIdentificationCode>
+                                    </AddressPostal>
+                                 </AddressComplete>
+                                 <SpecielVejkodeIndikator>false</SpecielVejkodeIndikator>
+                              </DanskAdresse>
+                           </FolkeregisterAdresse>
+                           <FolkekirkeMedlemIndikator>false</FolkekirkeMedlemIndikator>
+                        </CprBorger>
+                     </RegisterOplysning>
+                  </AttributListe>
+                  <TilstandListe>
+                     <LivStatus>
+                        <LivStatusKode>Foedt</LivStatusKode>
+                        <TilstandVirkning xmlns="urn:oio:sagdok:2.0.0">
+                           <FraTidspunkt>
+                              <TidsstempelDatoTid xmlns="urn:oio:sagdok:1.0.0">2017-05-15T22:02:00</TidsstempelDatoTid>
+                           </FraTidspunkt>
+                        </TilstandVirkning>
+                     </LivStatus>
+                  </TilstandListe>
+               </FiltreretOejebliksbillede>
+            </LaesResultat>
+            <Idliste xmlns="urn:oio:sagdok:1.0.0">
+               <UUID xmlns="urn:oio:dkal:1.0.0">9fd5b2aa-1c83-4ffe-a036-e38308b83a98</UUID>
+               <UUID xmlns="urn:oio:dkal:1.0.0">ecd612fc-d954-44a5-86b4-18ecb19e5956</UUID>
+               <UUID xmlns="urn:oio:dkal:1.0.0">e0c2174b-a24f-4f30-8db6-3180f902c944</UUID>
+            </Idliste>
+         </SoegListOutput>
+      </SearchListResponse>
+   </soap:Body>
+</soap:Envelope>

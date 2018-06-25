@@ -19,8 +19,8 @@ PORT = 8080
 # Files containing the responses
 LI = open("LaesInput.xml",'rb').read()
 uuid = open("UUID.xml", 'rb').read()
-lists = open("list1.xml", 'rb').read()
-addr = open("ADDR.xml",'rb').read()
+lists = open("List.xml", 'rb').read()
+addr = open("SearchList.xml",'rb').read()
 
 
 # This code makes the choice of which respond to send.
