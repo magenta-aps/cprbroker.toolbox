@@ -1,0 +1,14 @@
+<?xml version="1.0" ?>
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <soap:Body>
+                <SearchListResponse xmlns="http://dk.itst">
+                        <SoegListOutput xmlns="urn:oio:sagdok:person:1.0.0">
+                                <StandardRetur xmlns="urn:oio:sagdok:2.0.0">
+                                        <StatusKode>200</StatusKode>
+                                        <FejlbeskedTekst>OK</FejlbeskedTekst>
+                                </StandardRetur>
+                                <Idliste xmlns="urn:oio:sagdok:1.0.0"/>
+                        </SoegListOutput>
+                </SearchListResponse>
+        </soap:Body>
+</soap:Envelope>

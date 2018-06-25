@@ -1,0 +1,144 @@
+<?xml version="1.0" ?>
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <soap:Header>
+                <QualityHeader xmlns="http://dk.itst">
+                        <QualityLevel>LocalCache</QualityLevel>
+                </QualityHeader>
+        </soap:Header>
+        <soap:Body>
+                <ListResponse xmlns="http://dk.itst">
+                        <ListOutput xmlns="urn:oio:sagdok:person:1.0.0">
+                            <StandardRetur xmlns="urn:oio:sagdok:2.0.0">
+                                <StatusKode>200</StatusKode>
+                                <FejlbeskedTekst>OK</FejlbeskedTekst>
+                            </StandardRetur>
+                            <LaesResultat>
+                                <Registrering>
+                                    <Tidspunkt xmlns="urn:oio:sagdok:2.0.0">
+                                        <TidsstempelDatoTid xmlns="urn:oio:sagdok:1.0.0">2018-06-21T10:31:29.6720166+02:00</TidsstempelDatoTid>
+                                    </Tidspunkt>
+                                    <LivscyklusKode xmlns="urn:oio:sagdok:2.0.0">Rettet</LivscyklusKode>
+                                    <AktoerRef xmlns="urn:oio:sagdok:2.0.0">
+                                        <UUID xmlns="urn:oio:dkal:1.0.0">2b2c1518-f466-491f-8149-57afef48cc01</UUID>
+                                    </AktoerRef>
+                                    <AttributListe>
+                                        <Egenskab>
+                                            <NavnStruktur>
+                                            <PersonNameStructure xmlns="http://rep.oio.dk/itst.dk/xml/schemas/2006/01/17/">
+                                                <PersonGivenName xmlns="http://rep.oio.dk/ebxml/xml/schemas/dkcc/2003/02/13/">Alexandra</PersonGivenName>
+                                                <PersonSurnameName xmlns="http://rep.oio.dk/ebxml/xml/schemas/dkcc/2003/02/13/">Urmani</PersonSurnameName>
+                                            </PersonNameStructure>
+                                            <PersonNameForAddressingName xmlns="http://rep.oio.dk/itst.dk/xml/schemas/2005/02/22/">Alexandra Urmani</PersonNameForAddressingName>
+                                            </NavnStruktur>
+                                            <PersonGenderCode xmlns="http://rep.oio.dk/ebxml/xml/schemas/dkcc/2006/01/23/">female</PersonGenderCode>
+                                            <BirthDate xmlns="http://rep.oio.dk/ebxml/xml/schemas/dkcc/2005/03/15/">1942-12-31</BirthDate>
+                                            <Virkning xmlns="urn:oio:sagdok:2.0.0">
+                                            <FraTidspunkt>
+                                                <TidsstempelDatoTid xmlns="urn:oio:sagdok:1.0.0">1943-01-30T11:40:00</TidsstempelDatoTid>
+                                            </FraTidspunkt>
+                                            <TilTidspunkt>
+                                                <GraenseIndikator>false</GraenseIndikator>
+                                            </TilTidspunkt>
+                                            </Virkning>
+                                        </Egenskab>
+                                        <RegisterOplysning>
+                                            <CprBorger>
+                                            <PersonCivilRegistrationIdentifier xmlns="http://rep.oio.dk/cpr.dk/xml/schemas/core/2005/03/18/">3112420028</PersonCivilRegistrationIdentifier>
+                                            <PersonNummerGyldighedStatusIndikator>true</PersonNummerGyldighedStatusIndikator>
+                                            <NavneAdresseBeskyttelseIndikator>false</NavneAdresseBeskyttelseIndikator>
+                                            <TelefonNummerBeskyttelseIndikator>false</TelefonNummerBeskyttelseIndikator>
+                                            <ForskerBeskyttelseIndikator>false</ForskerBeskyttelseIndikator>
+                                            <FolkeregisterAdresse>
+                                                <DanskAdresse>
+                                                    <UkendtAdresseIndikator>false</UkendtAdresseIndikator>
+                                                    <AddressComplete xmlns="http://rep.oio.dk/xkom.dk/xml/schemas/2006/01/06/">
+                                                        <AddressAccess xmlns="http://rep.oio.dk/xkom.dk/xml/schemas/2005/03/15/">
+                                                        <MunicipalityCode xmlns="http://rep.oio.dk/cpr.dk/xml/schemas/core/2005/03/18/">851</MunicipalityCode>
+                                                        <StreetCode xmlns="http://rep.oio.dk/cpr.dk/xml/schemas/core/2005/03/18/">8512</StreetCode>
+                                                        <StreetBuildingIdentifier xmlns="http://rep.oio.dk/ebxml/xml/schemas/dkcc/2003/02/13/">002</StreetBuildingIdentifier>
+                                                        </AddressAccess>
+                                                        <AddressPostal>
+                                                        <StreetName xmlns="http://rep.oio.dk/ebxml/xml/schemas/dkcc/2005/03/15/">Industrivænget</StreetName>
+                                                        <StreetNameForAddressingName xmlns="http://rep.oio.dk/cpr.dk/xml/schemas/core/2005/03/18/">Industrivænget</StreetNameForAddressingName>
+                                                        <StreetBuildingIdentifier xmlns="http://rep.oio.dk/ebxml/xml/schemas/dkcc/2003/02/13/">002</StreetBuildingIdentifier>
+                                                        <FloorIdentifier xmlns="http://rep.oio.dk/ebxml/xml/schemas/dkcc/2003/02/13/">02</FloorIdentifier>
+                                                        <SuiteIdentifier xmlns="http://rep.oio.dk/ebxml/xml/schemas/dkcc/2003/02/13/">mf</SuiteIdentifier>
+                                                        <DistrictSubdivisionIdentifier xmlns="http://rep.oio.dk/ebxml/xml/schemas/dkcc/2005/03/15/">Hasseris</DistrictSubdivisionIdentifier>
+                                                        <PostCodeIdentifier xmlns="http://rep.oio.dk/ebxml/xml/schemas/dkcc/2005/03/15/">9000</PostCodeIdentifier>
+                                                        <DistrictName xmlns="http://rep.oio.dk/ebxml/xml/schemas/dkcc/2005/03/15/">Aalborg</DistrictName>
+                                                        <CountryIdentificationCode scheme="imk" xmlns="http://rep.oio.dk/ebxml/xml/schemas/dkcc/2003/02/13/">5100</CountryIdentificationCode>
+                                                        </AddressPostal>
+                                                    </AddressComplete>
+                                                    <SpecielVejkodeIndikator>false</SpecielVejkodeIndikator>
+                                                    <PostDistriktTekst>Aalborg</PostDistriktTekst>
+                                                </DanskAdresse>
+                                            </FolkeregisterAdresse>
+                                            <FolkekirkeMedlemIndikator>false</FolkekirkeMedlemIndikator>
+                                            </CprBorger>
+                                            <Virkning xmlns="urn:oio:sagdok:2.0.0">
+                                            <FraTidspunkt>
+                                                <TidsstempelDatoTid xmlns="urn:oio:sagdok:1.0.0">1997-09-09T11:40:00</TidsstempelDatoTid>
+                                            </FraTidspunkt>
+                                            <TilTidspunkt>
+                                                <GraenseIndikator>false</GraenseIndikator>
+                                            </TilTidspunkt>
+                                            </Virkning>
+                                        </RegisterOplysning>
+                                        <RegisterOplysning>
+                                            <CprBorger>
+                                            <PersonNummerGyldighedStatusIndikator>false</PersonNummerGyldighedStatusIndikator>
+                                            <PersonNationalityCode scheme="imk" xmlns="http://rep.oio.dk/ebxml/xml/schemas/dkcc/2006/01/03/">5150</PersonNationalityCode>
+                                            <NavneAdresseBeskyttelseIndikator>false</NavneAdresseBeskyttelseIndikator>
+                                            <TelefonNummerBeskyttelseIndikator>false</TelefonNummerBeskyttelseIndikator>
+                                            <ForskerBeskyttelseIndikator>false</ForskerBeskyttelseIndikator>
+                                            <FolkeregisterAdresse>
+                                                <VerdenAdresse>
+                                                    <UkendtAdresseIndikator>false</UkendtAdresseIndikator>
+                                                    <ForeignAddressStructure xmlns="http://rep.oio.dk/cpr.dk/xml/schemas/2008/05/01/">
+                                                        <PostalAddressFirstLineText xmlns="http://rep.oio.dk/ebxml/xml/schemas/dkcc/2005/05/19/">Via Vallerina 11</PostalAddressFirstLineText>
+                                                        <PostalAddressSecondLineText xmlns="http://rep.oio.dk/ebxml/xml/schemas/dkcc/2005/05/19/">I 87654 Cortona</PostalAddressSecondLineText>
+                                                        <PostalAddressThirdLineText xmlns="http://rep.oio.dk/ebxml/xml/schemas/dkcc/2005/05/19/">Italien</PostalAddressThirdLineText>
+                                                        <PostalAddressFourthLineText xmlns="http://rep.oio.dk/ebxml/xml/schemas/dkcc/2005/05/19/">Udlandsadresse linje 4 4 4 4 4 4 4</PostalAddressFourthLineText>
+                                                        <PostalAddressFifthLineText xmlns="http://rep.oio.dk/ebxml/xml/schemas/dkcc/2005/05/19/">Udlandsadresse linje 555 5 5 5 5 5</PostalAddressFifthLineText>
+                                                        <CountryIdentificationCode scheme="imk" xmlns="http://rep.oio.dk/ebxml/xml/schemas/dkcc/2003/02/13/">5150</CountryIdentificationCode>
+                                                    </ForeignAddressStructure>
+                                                </VerdenAdresse>
+                                            </FolkeregisterAdresse>
+                                            <FolkekirkeMedlemIndikator>false</FolkekirkeMedlemIndikator>
+                                            </CprBorger>
+                                            <Virkning xmlns="urn:oio:sagdok:2.0.0">
+                                            <FraTidspunkt>
+                                                <TidsstempelDatoTid xmlns="urn:oio:sagdok:1.0.0">1945-01-30T11:40:00</TidsstempelDatoTid>
+                                            </FraTidspunkt>
+                                            <TilTidspunkt>
+                                                <TidsstempelDatoTid xmlns="urn:oio:sagdok:1.0.0">1997-09-09T11:40:00</TidsstempelDatoTid>
+                                            </TilTidspunkt>
+                                            </Virkning>
+                                        </RegisterOplysning>
+                                    </AttributListe>
+                                    <TilstandListe>
+                                        <LivStatus>
+                                            <LivStatusKode>Foedt</LivStatusKode>
+                                            <TilstandVirkning xmlns="urn:oio:sagdok:2.0.0">
+                                            <FraTidspunkt>
+                                                <GraenseIndikator>false</GraenseIndikator>
+                                            </FraTidspunkt>
+                                            </TilstandVirkning>
+                                        </LivStatus>
+                                        <CivilStatus>
+                                            <CivilStatusKode>Ugift</CivilStatusKode>
+                                            <TilstandVirkning xmlns="urn:oio:sagdok:2.0.0">
+                                            <FraTidspunkt>
+                                                <GraenseIndikator>false</GraenseIndikator>
+                                            </FraTidspunkt>
+                                            </TilstandVirkning>
+                                        </CivilStatus>
+                                    </TilstandListe>
+                                    <RelationListe/>
+                                </Registrering>
+                            </LaesResultat>
+                            
+                        </ListOutput>
+                </ListResponse>
+        </soap:Body>
+</soap:Envelope>

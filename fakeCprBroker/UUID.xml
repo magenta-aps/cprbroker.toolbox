@@ -1,0 +1,14 @@
+<?xml version="1.0" ?>
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <soap:Body>
+                <GetUuidResponse xmlns="http://dk.itst">
+                        <GetUuidOutput xmlns="urn:oio:sagdok:person:1.0.0">
+                                <StandardRetur xmlns="urn:oio:sagdok:2.0.0">
+                                        <StatusKode>200</StatusKode>
+                                        <FejlbeskedTekst>OK</FejlbeskedTekst>
+                                </StandardRetur>
+                                <UUID xmlns="urn:oio:dkal:1.0.0">847f2b64-d84c-4161-a579-3f89c7e6d104</UUID>
+                        </GetUuidOutput>
+                </GetUuidResponse>
+        </soap:Body>
+</soap:Envelope>
