@@ -11,7 +11,18 @@ If persons are not inserted into DPR Emulation using DPR Emulation Diversion the
 
 ## how
 
-Export all person numbers from <cpr_broker>.dbo.PersonSearchCache (and <dpr_emulation>.dbo.DTTOTAL) into a collection of person numbers not containing duplicate entries, like so:
+Export all person numbers from CPR Broker:
+
+SELECT DISTINCT [CprBroker].[PersonMapping].[CprNumber]
+FROM [CprBroker].[PersonRegistration]
+INNER JOIN [CprBroker].[PersonMapping] on [CprBroker].[PersonMapping].[UUID]=[CprBroker].[PersonRegistration].[UUID]
+
+and export all person numbers from DPR Emulation database like so: 
+
+SELECT DISTINCT [DprEmulering].[DTTOTAL].[PNR]
+FROM [DprEmulering].[DTTOTAL]
+
+Merge the two into a collection of person numbers not containing duplicate entries, like so:
 
 **0000000000**<br>
 **1111111111**<br>
