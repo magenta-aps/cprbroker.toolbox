@@ -13,14 +13,14 @@ If persons are not inserted into DPR Emulation using DPR Emulation Diversion the
 
 Export all person numbers from CPR Broker:
 
-SELECT DISTINCT [CprBroker].[PersonMapping].[CprNumber]
-FROM [CprBroker].[PersonRegistration]
-INNER JOIN [CprBroker].[PersonMapping] on [CprBroker].[PersonMapping].[UUID]=[CprBroker].[PersonRegistration].[UUID]
+**SELECT DISTINCT [CprBroker].[PersonMapping].[CprNumber]**<br>
+**FROM [CprBroker].[PersonRegistration]**<br>
+**INNER JOIN [CprBroker].[PersonMapping] on [CprBroker].[PersonMapping].[UUID]=[CprBroker].[PersonRegistration].[UUID]**<br>
 
 and export all person numbers from DPR Emulation database like so: 
 
-SELECT DISTINCT [DprEmulering].[DTTOTAL].[PNR]
-FROM [DprEmulering].[DTTOTAL]
+**SELECT DISTINCT [DprEmulering].[DTTOTAL].[PNR]**<br>
+**FROM [DprEmulering].[DTTOTAL]**<br>
 
 Merge the two into a collection of person numbers not containing duplicate entries, like so:
 
