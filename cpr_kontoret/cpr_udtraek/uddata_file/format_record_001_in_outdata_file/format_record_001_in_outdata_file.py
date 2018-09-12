@@ -1,8 +1,8 @@
 # path = './dÅÅMMDD.l<opgavenr>'
-path = ''
+path = './d180719.l463003'
 
 su = open(path, 'r')
-sux = open(path + '.cpr', 'a', newline='')
+sux = open(path + '.rdy', 'a', newline='')
 
 for l in su:
 
