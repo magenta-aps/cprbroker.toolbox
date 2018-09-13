@@ -1,59 +1,52 @@
 import re
 
+def file_to_set(pnr_file_path):
 
-__author__ = "Heini Leander Ovason"
-
-""" NOTE: The example files indicate the expected format.
-They are simulating extracts from CPR Broker' PersonSearchCache,
-and DPR EMulation' DTTOTAL."""
-files = ['exampe_file_01', 'exampe_file_02']
-
-# To avoid duplicate pnr entries.
-pnr_set = set()
-
-for path in files:
-
-    pnr_file = open(path, 'r')
+    pnr_set = set()
+    
+    pnr_file = open(pnr_file_path, 'r')
 
     for line in pnr_file:
+        
+        if len(line) == 11:
 
-        check_line = re.match(r'^\d{10}$', line)
+            pnr_set.add(line[0:10])
 
-        if check_line:
-
-            formatted_line = line[0:10]
-
-            pnr_set.add(formatted_line)
-
-        """If the line is 9 digits, and the file contains person number
-        from a DprEmulering.dbo.DTTOTAL then there will not be any
-        leading zeros. This is because a person number is of type
-        int the DPR data model."""
-        check_for_dpr_format = re.match(r'^\d{9}$', line)
-
-        if check_for_dpr_format:
-
-            # Prepend a zero and leave out potential '\n'
-            formatted_dpr_line = '0{}'.format(line[:9])
-
-            pnr_set.add(formatted_dpr_line)
+        if len(line) == 10:
+            
+            pnr_set.add('0{}'.format(line[:9]))
 
     pnr_file.close()
 
-pnr_list = list(pnr_set)
+    return pnr_set
 
-""" It is a requirement that the inddata lines are sorted are naturally
-sorted. """
 
-pnr_list.sort()
+if __name__ == "__main__":
+    
+    files = ['cprbroker_cpr.csv', 'dpr_cpr.csv']
 
-inddata_filename = 'extractItem_and_dttotal_cprnr_diff.txt'
-inddata_file = open(inddata_filename, 'a')
+    list_of_sets = []
 
-for personnr in pnr_list:
+    for path in files:
 
-    cprnr = '{}\n'.format(personnr)
+        list_of_sets.append(file_to_set(path))
 
-    inddata_file.write(cprnr)
+    pnr_diff_list = list()
 
-inddata_file.close()
+    if len(list_of_sets[0]) > len(list_of_sets[1]):
+
+        pnr_diff_list = list(list_of_sets[0] - list_of_sets[1])
+
+    else:
+
+        pnr_diff_list = list(list_of_sets[1] - list_of_sets[0])
+
+    diff_file = open('result.txt', 'a')
+
+    for pnr in pnr_diff_list:
+
+        pnr = '{}\n'.format(pnr)
+
+        diff_file.write(pnr)
+
+    diff_file.close()
