@@ -32,9 +32,6 @@ pnr_file.close()
 list_len = len(pnr_list)
 print('INPUT(list Length): {}'.format(str(list_len)))
 
-""" It is a requirement that the inddata lines are sorted are naturally
-sorted. """
-
 formatted_file = open('formatted_file.csv', 'a')
 
 counter = 0
