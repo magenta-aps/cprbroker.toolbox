@@ -1,5 +1,5 @@
-# returns System.Data.DataSet
-function ProcessSelectQuery {
+# returns a string array with cpr numbers
+function GetCprNumbersDttotalWithoutVejkod {
     Param (
         [string]$connection_string,
         [string]$sql_query
@@ -8,21 +8,36 @@ function ProcessSelectQuery {
     $connection = New-Object System.Data.SQLClient.SQLConnection
     $connection.ConnectionString = $connectionString
     $connection.Open()
-    
+
     $Command = New-Object System.Data.SQLClient.SQLCommand
     $Command.Connection = $Connection
     $Command.CommandText = $sql_query
     $Reader = $Command.ExecuteReader()
 
-    $pnr_array = @()
+    $cpr_no_array = @()
     while ($Reader.Read()) {
-        $pnr_array += ,$Reader.GetValue($0) 
-    }
 
+        $cpr_no = $Reader.GetValue($0)
+
+        if ($cpr_no -match "^\d{9}$") {
+
+            $zero_prepended_cpr_no = "0$cpr_no"
+            $cpr_no_array += ,$zero_prepended_cpr_no
+
+        } elseif ($cpr_no -match "^\d{10}$") {
+
+            $cpr_no_array += ,$cpr_no
+
+        } else {
+            # Ignore everything else.
+        }
+    }
     $Connection.Close()
 
-    return $pnr_array
+    return $cpr_no_array
 }
+
+
 
 # Generic write to db function instead?
 function InsertIntoCprBrokerQueueItem {
