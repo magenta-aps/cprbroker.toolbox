@@ -1,32 +1,34 @@
 # returns a string array with cpr numbers
 function GetCprNumbersDttotalWithoutVejkod {
-    Param (
-        [string]$connection_string,
-        [string]$sql_query
-    )
+    Param ( [array]$ConnectionMap )
 
+    $DprEmuDbConStr = "Data Source=" + $ConnectionMap.DataSource + ";" +
+            "Initial Catalog=" + $ConnectionMap.Initialcatalog + ";" +
+            "User id=" + $ConnectionMap.UserId + ";" +
+            "Password=" + $ConnectionMap.Password + ";"
+ 
     $connection = New-Object System.Data.SQLClient.SQLConnection
-    $connection.ConnectionString = $connectionString
+    $connection.ConnectionString = $DprEmuDbConStr
     $connection.Open()
 
     $Command = New-Object System.Data.SQLClient.SQLCommand
     $Command.Connection = $Connection
-    $Command.CommandText = $sql_query
+    $Command.CommandText = $("SELECT [PNR] FROM " + $ConnectionMap.Initialcatalog + ".[dbo].[DTTOTAL] WHERE VEJKOD = 0 AND STATUS = 01")
     $Reader = $Command.ExecuteReader()
 
-    $cpr_no_array = @()
+    $CprNoArray = @()
     while ($Reader.Read()) {
 
-        $cpr_no = $Reader.GetValue($0)
+        $CprNo = $Reader.GetValue($0)
 
-        if ($cpr_no -match "^\d{9}$") {
+        if ($CprNo -match "^\d{9}$") {
 
-            $zero_prepended_cpr_no = "0$cpr_no"
-            $cpr_no_array += ,$zero_prepended_cpr_no
+            $ZeroPrependedCprNo = "0$CprNo"
+            $CprNoArray += ,$ZeroPrependedCprNo
 
-        } elseif ($cpr_no -match "^\d{10}$") {
+        } elseif ($CprNo -match "^\d{10}$") {
 
-            $cpr_no_array += ,$cpr_no
+            $CprNoArray += ,$CprNo
 
         } else {
             # Ignore everything else.
@@ -34,19 +36,43 @@ function GetCprNumbersDttotalWithoutVejkod {
     }
     $Connection.Close()
 
-    return $cpr_no_array
+    return $CprNoArray
 }
 
+# Returns a dictionary {"<CprNo>":"<most_recent_extract_id>"}
+function GetCprNoAndExtractIdMap {
+    Param ( [array]$connectionMap, [array]$CprNoArray )
 
+    $CprBrokerDbConStr = "Data Source=" + $ConnectionMap.DataSource + ";" +
+            "Initial Catalog=" + $ConnectionMap.Initialcatalog + ";" +
+            "User id=" + $ConnectionMap.UserId + ";" +
+            "Password=" + $ConnectionMap.Password + ";"
 
-# Generic write to db function instead?
-function InsertIntoCprBrokerQueueItem {
-    Param (
-        [string]$queue_id,
-        [string]$item_key,
-        [string]$created_ts,
-        [string]$attempt_count,
-        [string]$semaphore_id,
-        [string]$connection_string
-    )
+    #$connection = New-Object System.Data.SQLClient.SQLConnection
+    #$connection.ConnectionString = $CprBrokerDbConStr
+    #$connection.Open()
+
+    # $Command = New-Object System.Data.SQLClient.SQLCommand
+    # $Command.Connection = $Connection
+
+    # $cpr_and_extract_id_dict = @{}
+    # foreach ($CprNo in $CprNoArray) {
+
+    #     $Command.CommandText = $("SELECT TOP(1) [PNR], [Extract].[ExtractId]
+    #     FROM $cprbroker_src.[dbo].[ExtractItem]
+    #     FULL OUTER JOIN $cprbroker_src.[dbo].[Extract] on $cprbroker_src.[dbo].[ExtractItem].[ExtractId] = $cprbroker_src.[dbo].[Extract].[ExtractId]
+    #     WHERE PNR = $CprNo
+    #     ORDER BY [Extract].[ImportDate] DESC")
+        
+    #     $Reader = $Command.ExecuteReader()
+        
+    #     while ($Reader.Read()) {
+    #         $CprNo = $Reader.GetValue($0)
+    #         $extract_id = $Reader.GetValue($1)
+    #         $cpr_and_extract_id_dict.Add($CprNo, $extract_id)
+    #     } 
+    # }
+    # $Connection.Close()
+    # $cpr_extract_id_dict
+    #return $cpr_extract_id_dict
 }
