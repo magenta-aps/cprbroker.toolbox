@@ -8,14 +8,20 @@ function ProcessSelectQuery {
     $connection = New-Object System.Data.SQLClient.SQLConnection
     $connection.ConnectionString = $connectionString
     $connection.Open()
+    
     $Command = New-Object System.Data.SQLClient.SQLCommand
     $Command.Connection = $Connection
     $Command.CommandText = $sql_query
     $Reader = $Command.ExecuteReader()
+
+    $pnr_array = @()
     while ($Reader.Read()) {
-         $Reader.GetValue($0) 
+        $pnr_array += ,$Reader.GetValue($0) 
     }
+
     $Connection.Close()
+
+    return $pnr_array
 }
 
 # Generic write to db function instead?

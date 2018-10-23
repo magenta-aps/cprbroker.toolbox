@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<Settings>
+  <Database>
+    <DprEmulation>
+      <Source></Source>
+      <InitialCatalog></InitialCatalog>
+      <UserId></UserId>
+      <Password></Password>
+    </DprEmulation>
+    <CprBroker>
+      <Source></Source>
+      <InitialCatalog></InitialCatalog>
+      <UserId></UserId>
+      <Password></Password>
+    </CprBroker>
+  </Database>
+</Settings>
