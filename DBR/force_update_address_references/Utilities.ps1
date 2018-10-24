@@ -1,6 +1,7 @@
 # returns a string array with cpr numbers
-function GetCprNumbersDttotalWithoutVejkod {
-    Param ( [array]$ConnectionMap )
+function GetCprNumbersDttotalWithoutVejkod 
+{
+    Param ([array]$ConnectionMap)
 
     $DprEmuDbConStr = "Data Source=" + $ConnectionMap.DataSource + ";" +
             "Initial Catalog=" + $ConnectionMap.Initialcatalog + ";" +
@@ -17,20 +18,21 @@ function GetCprNumbersDttotalWithoutVejkod {
     $Reader = $Command.ExecuteReader()
 
     $CprNoArray = @()
-    while ($Reader.Read()) {
-
+    while ( $Reader.Read() ) 
+    {
         $CprNo = $Reader.GetValue($0)
 
-        if ($CprNo -match "^\d{9}$") {
-
+        if ($CprNo -match "^\d{9}$") 
+        {
             $ZeroPrependedCprNo = "0$CprNo"
             $CprNoArray += ,$ZeroPrependedCprNo
-
-        } elseif ($CprNo -match "^\d{10}$") {
-
+        } 
+        elseif ($CprNo -match "^\d{10}$") 
+        {
             $CprNoArray += ,$CprNo
-
-        } else {
+        } 
+        else 
+        {
             # Ignore everything else.
         }
     }
@@ -40,39 +42,100 @@ function GetCprNumbersDttotalWithoutVejkod {
 }
 
 # Returns a dictionary {"<CprNo>":"<most_recent_extract_id>"}
-function GetCprNoAndExtractIdMap {
-    Param ( [array]$connectionMap, [array]$CprNoArray )
+function GetItemKeyArray 
+{
+    Param ([array]$ConnectionMap, [array]$CprNoArray)
 
     $CprBrokerDbConStr = "Data Source=" + $ConnectionMap.DataSource + ";" +
             "Initial Catalog=" + $ConnectionMap.Initialcatalog + ";" +
             "User id=" + $ConnectionMap.UserId + ";" +
             "Password=" + $ConnectionMap.Password + ";"
 
-    #$connection = New-Object System.Data.SQLClient.SQLConnection
-    #$connection.ConnectionString = $CprBrokerDbConStr
-    #$connection.Open()
+    $Connection = New-Object System.Data.SQLClient.SQLConnection
+    $Connection.ConnectionString = $CprBrokerDbConStr
+    $Connection.Open()
 
-    # $Command = New-Object System.Data.SQLClient.SQLCommand
-    # $Command.Connection = $Connection
+    $Command = New-Object System.Data.SQLClient.SQLCommand
+    $Command.Connection = $Connection
 
-    # $cpr_and_extract_id_dict = @{}
-    # foreach ($CprNo in $CprNoArray) {
+    $ItemKeyArray = @()
+    foreach ($CprNo in $CprNoArray) 
+    {
+        $SqlQuery = $("SELECT TOP(1) [PNR], [Extract].[ExtractId]
+                    FROM [" + $ConnectionMap.Initialcatalog + "].[dbo].[ExtractItem]
+                    FULL OUTER JOIN [" + $ConnectionMap.Initialcatalog + "].[dbo].[Extract] " +
+                        "on [" + $ConnectionMap.Initialcatalog + "].[dbo].[ExtractItem].[ExtractId] " +
+                        "= [" + $ConnectionMap.Initialcatalog + "].[dbo].[Extract].[ExtractId]
+                    WHERE PNR = '$CprNo'
+                    ORDER BY [Extract].[ImportDate] DESC")
 
-    #     $Command.CommandText = $("SELECT TOP(1) [PNR], [Extract].[ExtractId]
-    #     FROM $cprbroker_src.[dbo].[ExtractItem]
-    #     FULL OUTER JOIN $cprbroker_src.[dbo].[Extract] on $cprbroker_src.[dbo].[ExtractItem].[ExtractId] = $cprbroker_src.[dbo].[Extract].[ExtractId]
-    #     WHERE PNR = $CprNo
-    #     ORDER BY [Extract].[ImportDate] DESC")
+        $Command.CommandText = $SqlQuery
         
-    #     $Reader = $Command.ExecuteReader()
-        
-    #     while ($Reader.Read()) {
-    #         $CprNo = $Reader.GetValue($0)
-    #         $extract_id = $Reader.GetValue($1)
-    #         $cpr_and_extract_id_dict.Add($CprNo, $extract_id)
-    #     } 
-    # }
-    # $Connection.Close()
-    # $cpr_extract_id_dict
-    #return $cpr_extract_id_dict
+        $Reader = $Command.ExecuteReader()
+        while ($Reader.Read()) 
+        {
+            $CprNo = $Reader.GetValue(0)
+            $ExtractId = $Reader.GetValue(1)
+            $ItemKey = "$Extractid|$CprNo"
+            $ItemKeyArray += ,$ItemKey
+        } 
+        $Reader.close()
+    }
+    $Connection.Close()
+    
+    return $ItemKeyArray
 }
+
+# NOT TESTED YET!
+# function InsertIntoCprBrokerQueueItem 
+# {
+#     param([array]$ConnectionMap,
+#         [string]$QueueId,
+#         [array]$ItemKeyArray,
+#         [string]$CreatedTS,
+#         [int]$AttemptCount,
+#         [string]$SemaphoreId
+#         )
+
+#         $CprBrokerDbConStr = "Data Source=" + $ConnectionMap.DataSource + ";" +
+#             "Initial Catalog=" + $ConnectionMap.Initialcatalog + ";" +
+#             "User id=" + $ConnectionMap.UserId + ";" +
+#             "Password=" + $ConnectionMap.Password + ";"
+
+#         $Connection = New-Object System.Data.SQLClient.SQLConnection
+#         $Connection.ConnectionString = $CprBrokerDbConStr
+#         $Connection.Open()
+
+#         $Command = New-Object System.Data.SQLClient.SQLCommand
+#         $Command.Connection = $Connection
+
+#         foreach ($itemKey in $ItemKeyArray) {
+
+#             $SqlQuery = $("USE ["+ $ConnectionMap.InitialCatalog +"]
+#                         GO     
+#                         INSERT INTO [dbo].[QueueItem]
+#                                 ([QueueId]
+#                                 ,[ItemKey]
+#                                 ,[CreatedTS]
+#                                 ,[AttemptCount]
+#                                 ,[SemaphoreId])
+#                             VALUES
+#                                 ('$QueueId'
+#                                 ,'$ItemKey'
+#                                 ,'$CreatedTS'
+#                                 ,$AttemptCount
+#                                 ,$SemaphoreId
+#                         GO")
+
+#             $Command.CommandText = $SqlQuery
+
+#             $Reader = $Command.ExecuteReader()
+#             while ($Reader.Read()) 
+#             {
+#                 $CprNo = $Reader.GetValue(0)
+#             } 
+#             $Reader.close()
+#         }
+#         $Connection.Close()
+       
+# }
