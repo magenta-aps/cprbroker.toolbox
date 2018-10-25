@@ -17,6 +17,7 @@ $DprEmuDbConMap = @{ "DataSource" = $DprEmuSrc;
                     "Password"= $DprEmuPwd }
 
 $DttotalCprNoArray = GetCprNumbersDttotalWithoutVejkod -ConnectionMap $DprEmuDbConMap
+Write-Host "[INFO]:"$DttotalCprNoArray.length"persons in DPR Emulation DTTOTAL without address reference."
 
 #########################
 ### GET ItemKey array ###
@@ -37,20 +38,17 @@ $ItemKeyArray = GetItemKeyArray -ConnectionMap $CprBrokerDbConMap -CprNoArray $D
 # Output status to inform if the two collections are equal in size..
 if ($DttotalCprNoArray.length -eq $ItemKeyArray.length) 
 {
-    Write-Host "'DttotalCprNoArray' and 'ItemKeyArray' are equal in size."
+    Write-Host  "[INFO]: 'DttotalCprNoArray' and 'ItemKeyArray' are equal in size which means we found an Extract Id for each cpr number."
 } 
 else
 {
-    Write-Host "'DttotalCprNoArray' and 'ItemKeyArray' are NOT equal in size."
+    Write-Host  "[WARNING]: 'DttotalCprNoArray' and 'ItemKeyArray' are NOT equal in size which means we did not find an ExtractId for each cpr number."
 }
 
 ##################################
 ### INSERT ROWS INTO QUEUEITEM ###
 ##################################
 
-$DbrQueueId = "0D3D91F4-9B5A-4575-BDDA-0F39FE19B933"
-$Created_TS = Get-Date -UFormat "%Y-%m-%d %H:%M:%S:000"
-$AttemptCount = 0
-$SemaphoreId = "Null"
+$DbrQueueId = $ConfigFile.Settings.QueueId
 
-$ItemKeyArray = InsertIntoCprBrokerQueueItem -ConnectionMap $CprBrokerDbConMap -QueueId $DbrQueueId -ItemKeyArray $ItemKeyArray -CreatedTS $Created_TS -AttemptCount $AttemptCount -SemaphoreId $SemaphoreId
+InsertIntoCprBrokerQueueItem -ConnectionMap $CprBrokerDbConMap -QueueId $DbrQueueId -ItemKeyArray $ItemKeyArray
