@@ -1,4 +1,4 @@
-# Force Update Address References in [DprEMulationDb].[dbo].[DTTOTAL]
+# Force Update Address References in [DprEmulationDb].[dbo].[DTTOTAL]
 
 ## Purpose
 To force an update of address references in **[DprEMulationDb].[dbo].[DTTOTAL]**.
