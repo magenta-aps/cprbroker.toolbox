@@ -1,4 +1,4 @@
-. .\Utilities.ps1
+. .\Functions.ps1
 
 [xml]$ConfigFile = Get-Content "./Settings.xml"
 
