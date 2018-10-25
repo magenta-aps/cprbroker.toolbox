@@ -1,3 +1,3 @@
 # cprbroker.toolbox
 
-This is a repository with nice to have tools for testing and debugging of CPR Broker
+The repository containing a range of different tools for testing, debugging, and maintaining CPR Broker and DPR Emulation.
