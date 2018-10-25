@@ -4,7 +4,7 @@
 To force an update of address references in **[DprEMulationDb].[dbo].[DTTOTAL]**.
 
 ## How does the tool work?
-Retrieves all **_PNR_** from **[DprEMulationDb].[dbo].[DTTOTAL]** where **_VEJKOD_** is *0*. The value *0* means that the given person does not have an address reference. 
+Retrieves all **_PNR_** from **[DprEmulationDb].[dbo].[DTTOTAL]** where **_VEJKOD_** is *0*. The value *0* means that the given person does not have an address reference. 
 For each cpr number to create an **_ItemKey_** based on joined data from **[CprBrokerDb].[dbo].[ExtractItem]** and **[CprBrokerDb].[dbo].[Extract]**.
 The tool then uses **_ItemKey_** to insert rows into **[CprBrokerDb].[dbo].[QueueItem]**. 
 Bear in mind that there might not always be a valid adress reference in **[CprBrokerDb].[dbo].[ExtractItem]** in relation to the latest **_ExtractId_**. Sometimes people don't have an address, e.g. newborns, foreigners, etc.
