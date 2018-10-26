@@ -16,7 +16,7 @@ function GetCprNumbersDttotalWithoutVejkod
 
     $Command = New-Object System.Data.SQLClient.SQLCommand
     $Command.Connection = $Connection
-    $Command.CommandText = $("SELECT [PNR] FROM " + $ConnectionMap.Initialcatalog + ".[dbo].[DTTOTAL] WHERE VEJKOD = 0")
+    $Command.CommandText = $("SELECT [PNR] FROM " + $ConnectionMap.Initialcatalog + ".[dbo].[DTTOTAL] WHERE VEJKOD = 0 AND STATUS = 01")
     $Reader = $Command.ExecuteReader()
 
     $CprNoArray = @()
