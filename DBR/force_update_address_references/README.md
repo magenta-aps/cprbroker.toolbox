@@ -1,7 +1,7 @@
 # Force Update Address References in [DprEmulationDb].[dbo].[DTTOTAL]
 
 ## Purpose
-To force an update of address references in **[DprEMulationDb].[dbo].[DTTOTAL]**.
+To force an update of address references in **[DprEMulationDb].[dbo].[DTTOTAL]** on people who do not already have an address.
 
 ## How does the tool work?
 Retrieves all **_PNR_** from **[DprEmulationDb].[dbo].[DTTOTAL]** where **_VEJKOD_** is *0*. The value *0* means that the given person does not have an address reference. 
