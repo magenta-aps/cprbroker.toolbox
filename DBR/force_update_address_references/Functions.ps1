@@ -43,7 +43,7 @@ function GetCprNumbersDttotalWithoutVejkod
     return $CprNoArray
 }
 
-# Returns a dictionary {"<CprNo>":"<most_recent_extract_id>"}
+# Returns an array item keys. ItemKey = "ExtractId|CprNumber"
 function GetItemKeyArray 
 {
     Param (
