@@ -1,12 +1,14 @@
 <?xml version="1.0"?>
 <Settings>
   <Database>
+    <!-- DPR Emulation SQL -->
     <DprEmulation>
       <Source></Source>
       <InitialCatalog></InitialCatalog>
       <UserId></UserId>
       <Password></Password>
     </DprEmulation>
+    <!-- CPR Broker SQL-->
     <CprBroker>
       <Source></Source>
       <InitialCatalog></InitialCatalog>
@@ -14,5 +16,6 @@
       <Password></Password>
     </CprBroker>
   </Database>
+  <!-- DPR Emulation's CPR Broker QueueId -->
   <QueueId></QueueId>
 </Settings>
