@@ -1,3 +1,14 @@
+# Downloads data files from cpr.dk
+function DownloadPostDistrictAndGeoLocationFiles
+{
+    # Move partial logic from ./playground.ps1 here.
+}
+
+function ProcessPostDistrictAndGeoLocationFiles
+{
+    # Move partial logic from ./playground.ps1 here.
+}
+
 # returns a string array with cpr numbers
 function GetCprNumbersDttotalWithoutVejkod 
 {

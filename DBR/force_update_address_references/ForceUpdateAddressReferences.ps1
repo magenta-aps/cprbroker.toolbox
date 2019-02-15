@@ -35,7 +35,7 @@ $CprBrokerDbConMap = @{ "DataSource" = $CprBrokerSrc;
 
 $ItemKeyArray = GetItemKeyArray -ConnectionMap $CprBrokerDbConMap -CprNoArray $DttotalCprNoArray
 
-# Output status to inform if the two collections are equal in size..
+# Output status to inform if the two collections are equal in size.
 if ($DttotalCprNoArray.length -eq $ItemKeyArray.length) 
 {
     Write-Host  "[INFO]: 'DttotalCprNoArray' and 'ItemKeyArray' are equal in size which means we found an Extract Id for each cpr number."
