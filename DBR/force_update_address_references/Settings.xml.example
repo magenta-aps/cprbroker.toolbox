@@ -1,21 +1,28 @@
 <?xml version="1.0"?>
 <Settings>
   <Database>
-    <!-- DPR Emulation SQL -->
+    <!-- DPR Emulation SQL User -->
     <DprEmulation>
-      <Source></Source>
-      <InitialCatalog></InitialCatalog>
-      <UserId></UserId>
-      <Password></Password>
+      <Source>?</Source>
+      <InitialCatalog>?</InitialCatalog>
+      <UserId>?</UserId>
+      <Password>?</Password>
     </DprEmulation>
-    <!-- CPR Broker SQL-->
+    <!-- CPR Broker SQL User-->
     <CprBroker>
-      <Source></Source>
-      <InitialCatalog></InitialCatalog>
-      <UserId></UserId>
-      <Password></Password>
+      <Source>?</Source>
+      <InitialCatalog>?</InitialCatalog>
+      <UserId>?</UserId>
+      <Password>?</Password>
     </CprBroker>
   </Database>
   <!-- DPR Emulation's CPR Broker QueueId -->
-  <QueueId></QueueId>
+  <QueueId>?</QueueId>
+  <!-- Folder name for post district and geolocation data files -->
+  <DownloadFolderName>?</DownloadFolderName>
+  <!-- Copy link location for the .txt at: https://www.cpr.dk/kunder/gratis-download/postdistrikter-og-udtraeksbeskrivelse/ -->
+  <PostDistrictTxtFile>?</PostDistrictTxtFile>
+  <!-- Copy link location for the .zip file from "after the convertion of DARCPR"  -->
+  <!-- The file is located at: https://www.cpr.dk/kunder/gratis-download/postdistrikter-og-udtraeksbeskrivelse/ -->
+  <GeoLocationZipFile>?</GeoLocationZipFile> 
 </Settings>
