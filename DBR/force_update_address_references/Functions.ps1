@@ -1,7 +1,28 @@
 # Downloads data files from cpr.dk
 function DownloadPostDistrictAndGeoLocationFiles
 {
-    # Move partial logic from ./playground.ps1 here.
+    Param([array]$uriList)
+
+    New-Variable -Name "DOWNLOAD_PATH" -Value "Download" -Option Constant
+    $downloadPath = [string]::Format("{0}\{1}", $PSScriptRoot, $DOWNLOAD_PATH)
+    New-Item -ItemType Directory -Force -Path $downloadPath
+
+    $wc = New-Object System.Net.WebClient
+
+    foreach ($uri in $uriList)
+    {
+        try {
+            Write-Host ("Trying to download file from " + $uri)
+            $filename = $uri.substring($uri.lastIndexOf('/') + 1);
+            $wc.DownloadFile($uri, ($downloadPath + "\" + $filename))
+        }
+        catch [Net.WebException] 
+        {
+            Write-Host $_.Exception.ToString()
+            Write-Host "Exiting program..."
+            exit
+        }
+    }
 }
 
 function ProcessPostDistrictAndGeoLocationFiles
