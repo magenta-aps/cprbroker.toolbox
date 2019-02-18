@@ -1,11 +1,7 @@
-# Downloads data files from cpr.dk
+# Downloads data files from cpr.dk and returns download path.
 function DownloadPostDistrictAndGeoLocationFiles
 {
-    Param([array]$uriList)
-
-    New-Variable -Name "DOWNLOAD_PATH" -Value "Download" -Option Constant
-    $downloadPath = [string]::Format("{0}\{1}", $PSScriptRoot, $DOWNLOAD_PATH)
-    New-Item -ItemType Directory -Force -Path $downloadPath
+    Param([array]$uriList, [string]$downloadPath)
 
     $wc = New-Object System.Net.WebClient
 
@@ -14,7 +10,7 @@ function DownloadPostDistrictAndGeoLocationFiles
         try {
             Write-Host ("Trying to download file from " + $uri)
             $filename = $uri.substring($uri.lastIndexOf('/') + 1);
-            $wc.DownloadFile($uri, ($downloadPath + "\" + $filename))
+            $wc.DownloadFile($uri, ($downloadPath + "\" + $filename)) 
         }
         catch [Net.WebException] 
         {
@@ -25,9 +21,19 @@ function DownloadPostDistrictAndGeoLocationFiles
     }
 }
 
+# Processes the files fron download directory.
+# After processing files the function removes the directory.
 function ProcessPostDistrictAndGeoLocationFiles
 {
-    # Move partial logic from ./playground.ps1 here.
+    Param([string]$downloadPath)
+    
+    $filesList = Get-ChildItem $downloadPath
+    foreach ($file in $filesList)
+    {
+        Write-Host $file
+    }
+    Write-Host ([string]::Format("{0} {1}", "Removing download folder at:", $downloadPath))
+    Remove-Item $downloadPath -Force -Recurse
 }
 
 # returns a string array with cpr numbers
