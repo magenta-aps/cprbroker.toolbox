@@ -18,8 +18,6 @@
   </Database>
   <!-- DPR Emulation's CPR Broker QueueId -->
   <QueueId>?</QueueId>
-  <!-- Folder name for post district and geolocation data files -->
-  <DownloadFolderName>?</DownloadFolderName>
   <!-- Copy link location for the .txt at: https://www.cpr.dk/kunder/gratis-download/postdistrikter-og-udtraeksbeskrivelse/ -->
   <PostDistrictTxtFile>?</PostDistrictTxtFile>
   <!-- Copy link location for the .zip file from "after the convertion of DARCPR"  -->
