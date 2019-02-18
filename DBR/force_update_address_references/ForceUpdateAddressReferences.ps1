@@ -2,9 +2,9 @@
 
 [xml]$ConfigFile = Get-Content "./Settings.xml"
 
-###################################################
-### GET ARRAY OF CPR NUMBERS FROM DPR EMULATION ###
-###################################################
+###########################################
+### Configuration of settings variables ###
+###########################################
 
 $DprEmuSrc = $ConfigFile.Settings.Database.DprEmulation.Source
 $DprEmuDb = $ConfigFile.Settings.Database.DprEmulation.InitialCatalog
@@ -16,13 +16,6 @@ $DprEmuDbConMap = @{ "DataSource" = $DprEmuSrc;
                     "UserId" = $DprEmuUsr;
                     "Password"= $DprEmuPwd }
 
-$DttotalCprNoArray = GetCprNumbersDttotalWithoutVejkod -ConnectionMap $DprEmuDbConMap
-Write-Host "[INFO]:"$DttotalCprNoArray.length"persons in DPR Emulation DTTOTAL without address reference."
-
-#########################
-### GET ItemKey array ###
-#########################
-
 $CprBrokerSrc = $ConfigFile.Settings.Database.CprBroker.Source
 $CprBrokerDb = $ConfigFile.Settings.Database.CprBroker.InitialCatalog
 $CprBrokerUsr = $ConfigFile.Settings.Database.CprBroker.UserId
@@ -32,6 +25,39 @@ $CprBrokerDbConMap = @{ "DataSource" = $CprBrokerSrc;
                         "InitialCatalog" = $CprBrokerDb;
                         "UserId" = $CprBrokerUsr;
                         "Password"= $CprBrokerPwd }
+
+$downloadFolder = $ConfigFile.Settings.DownloadFolder
+
+$postDistrictData = $ConfigFile.Settings.PostDistrictTxtFile
+
+$GeoLocationData = $ConfigFile.Settings.GeoLocationZipFile
+
+###############################################
+### UPDATE DPR EMULATION ADDRESS REFERENCES ###
+###############################################
+
+New-Variable -Name "DOWNLOAD_FOLDER" -Value $downloadFolder -Option Constant
+$downloadPath = [string]::Format("{0}\{1}", $PSScriptRoot, $DOWNLOAD_FOLDER)
+New-Item -ItemType Directory -Force -Path $downloadPath
+
+$uriList = @($postDistrictData, $GeoLocationData) 
+
+DownloadPostDistrictAndGeoLocationFiles -uriList $uriList -downloadPath $downloadPath
+
+ProcessPostDistrictAndGeoLocationFiles -downloadPath $downloadPath
+
+exit # <-------------------- Remember to remove!
+
+###################################################
+### GET ARRAY OF CPR NUMBERS FROM DPR EMULATION ###
+###################################################
+
+$DttotalCprNoArray = GetCprNumbersDttotalWithoutVejkod -ConnectionMap $DprEmuDbConMap
+Write-Host "[INFO]:"$DttotalCprNoArray.length" persons in DPR Emulation DTTOTAL without address reference."
+
+#########################
+### GET ItemKey array ###
+#########################
 
 $ItemKeyArray = GetItemKeyArray -ConnectionMap $CprBrokerDbConMap -CprNoArray $DttotalCprNoArray
 

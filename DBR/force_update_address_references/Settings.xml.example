@@ -18,6 +18,9 @@
   </Database>
   <!-- DPR Emulation's CPR Broker QueueId -->
   <QueueId>?</QueueId>
+  <!-- BatchClient.exe: {{DRIVE}}:\{{PATH_TO}}\CPRbroker\PART\Source\CprBroker\BatchClient\bin\Debug -->
+  <BatchClientPath>?<BatchClientPath>
+  <!-- Name of the download folder. -->
   <DownloadFolder>?</DownloadFolder>
   <!-- Copy link location for the .txt at: https://www.cpr.dk/kunder/gratis-download/postdistrikter-og-udtraeksbeskrivelse/ -->
   <PostDistrictTxtFile>?</PostDistrictTxtFile>

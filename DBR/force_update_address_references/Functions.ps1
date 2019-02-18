@@ -30,9 +30,21 @@ function ProcessPostDistrictAndGeoLocationFiles
     $filesList = Get-ChildItem $downloadPath
     foreach ($file in $filesList)
     {
-        Write-Host $file
+        $extn = [System.IO.Path]::GetExtension($file)
+        if ($extn -eq ".txt")
+        {
+            # .\BatchClient.exe /envType "BatchClient.{{UpdatePostCodeInformation or UpdatePostCodeInformation}}, BatchClient" /source "C:\...\BatchClient\...\{{DATA_FILE}}}" /otherDb "data source=?; initial catalog=?; user id=?; password=?;"
+        }
+        if ($extn -eq ".zip")
+        {
+            $zipLocation = [string]::Format("{0}\{1}", $downloadPath, $file)
+            Expand-Archive $zipLocation -DestinationPath $downloadPath
+            Remove-Item $zipLocation -Force
+
+            # .\BatchClient.exe /envType "BatchClient.{{UpdatePostCodeInformation or UpdateGeoLocationInformation}}, BatchClient" /source "C:\...\BatchClient\...\{{DATA_FILE}}}" /otherDb "data source=?; initial catalog=?; user id=?; password=?;"
+        }
     }
-    Write-Host ([string]::Format("{0} {1}", "Removing download folder at:", $downloadPath))
+
     Remove-Item $downloadPath -Force -Recurse
 }
 
