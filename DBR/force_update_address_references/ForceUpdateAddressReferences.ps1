@@ -46,8 +46,6 @@ DownloadPostDistrictAndGeoLocationFiles -uriList $uriList -downloadPath $downloa
 
 ProcessPostDistrictAndGeoLocationFiles -downloadPath $downloadPath
 
-exit # <-------------------- Remember to remove!
-
 ###################################################
 ### GET ARRAY OF CPR NUMBERS FROM DPR EMULATION ###
 ###################################################
