@@ -1,4 +1,4 @@
-*.csv
+/Download
 *.xml
-Downloads
-*test*
+*.txt
+*.zip
