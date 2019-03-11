@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<Settings>
+  <Database>
+    <PersonMaster>
+      <Source></Source>
+      <InitialCatalog></InitialCatalog>
+      <UserId></UserId>
+      <Password></Password>
+    </PersonMaster>
+  </Database>
+  <Paths>
+    <!--
+          NewPersonmaster:
+
+          Line-seperated file where line must be like:
+
+          {cprNo},{newPersonMasterID}
+
+          {cprNo} is used for looking up UUID in the
+          old [{newPersonmaster}].[dbo].[T_PM_CPR]
+          The UUID {newPersonMasterID} is going to be used
+          as a reference, so we can update {newPersonMasterID}
+          on the new installation.
+    -->
+    <NewPersonmaster></NewPersonmaster>
+    <!--
+          OldPersonmaster:
+
+          Generated line-seperated file where line is like:
+
+          {cprNo},{newPersonMasterID},{oldPersonMasterID}
+
+          {newPersonMasterID} is used for looking up FOREIGN KEY 
+          [personMasterID] in [{newPersonmaster}].[dbo].[T_PM_CPR] 
+          in order update the PRIMARY KEY [objectID] in 
+          [{newPersonmaster}].[dbo].[T_PM_PersonMaster]
+          Remember to set the UPDATE specification" in relationen 
+          FK_PersonMaster_From_CPR to "Cascade" in [{newPersonmaster}].
+    -->
+    <OldPersonmaster></OldPersonmaster>
+  </Paths>
+</Settings>
