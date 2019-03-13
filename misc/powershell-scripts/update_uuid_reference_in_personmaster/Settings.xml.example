@@ -10,32 +10,19 @@
   </Database>
   <Paths>
     <!--
-          NewPersonmaster:
-
-          Line-seperated file where line must be like:
-
-          {cprNo},{newPersonMasterID}
-
-          {cprNo} is used for looking up UUID in the
-          old [{newPersonmaster}].[dbo].[T_PM_CPR]
-          The UUID {newPersonMasterID} is going to be used
-          as a reference, so we can update {newPersonMasterID}
-          on the new installation.
-    -->
-    <NewPersonmaster></NewPersonmaster>
-    <!--
           OldPersonmaster:
 
           Generated line-seperated file where line is like:
 
-          {cprNo},{newPersonMasterID},{oldPersonMasterID}
+          {cprNo},{newPersonMasterID},{originalPersonMasterID}
 
-          {newPersonMasterID} is used for looking up FOREIGN KEY 
-          [personMasterID] in [{newPersonmaster}].[dbo].[T_PM_CPR] 
-          in order update the PRIMARY KEY [objectID] in 
-          [{newPersonmaster}].[dbo].[T_PM_PersonMaster]
-          Remember to set the UPDATE specification" in relationen 
-          FK_PersonMaster_From_CPR to "Cascade" in [{newPersonmaster}].
+          {newPersonMasterID} is used for looking up the current 
+          (PK)[objectID] in [dbo].[T_PM_CPR]. 
+          In order update the FOREIGN KEY [personMasterID] in 
+          [{newPersonmaster}].[dbo].[T_PM_CPR] we have to do
+          a Cascade UPDATE on the Primary key.
+          In the given database Remember to set the UPDATE specification" 
+          in relationen FK_PersonMaster_From_CPR to "Cascade".
     -->
     <OldPersonmaster></OldPersonmaster>
   </Paths>
