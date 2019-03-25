@@ -1,0 +1,2 @@
+<PATH_TO>\BatchClient.exe /envType "BatchClient.UpdatePostCodeInformation, BatchClient" /source "<PATH_TO>\a370712.txt" /otherDb "data source=<SERVER>; initial catalog=<DATABASE>; user id=<USER>; password=<PASSWORD>;"
+<PATH_TO>\BatchClient.exe /envType "BatchClient.UpdateGeoLocationInformation, BatchClient" /source "<PATH_TO>\A370715.txt" /otherDb "data source=<SERVER>; initial catalog=<DATABASE>; user id=<USER>; password=<PASSWORD>;"
