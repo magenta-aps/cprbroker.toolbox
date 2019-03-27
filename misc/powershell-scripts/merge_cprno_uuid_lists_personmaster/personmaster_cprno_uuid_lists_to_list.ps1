@@ -1,4 +1,8 @@
-$new_cprno_uuid = "C:\cprbroker.toolbox\misc\powershell-scripts\personmaster_cprno_uuid_lists_to_list\cprbroker-p01-new-cprs.csv"
+##############################################################
+### REMEMBER TO REMOVE HEADERS IN DATABASE EXTRACT FILES ! ###
+##############################################################
+
+$new_cprno_uuid = "C:\cprbroker.toolbox\misc\powershell-scripts\merge_cprno_uuid_lists_personmaster\ny-cprbroker-cprno-uuid-comma.csv"
 $new_cprno_uuid_hash_table = @{}
 foreach($line in [System.IO.File]::ReadLines($new_cprno_uuid)) 
 {
@@ -15,7 +19,7 @@ foreach($line in [System.IO.File]::ReadLines($new_cprno_uuid))
     }
 }
 
-$old_cprno_uuid = "C:\cprbroker.toolbox\misc\powershell-scripts\personmaster_cprno_uuid_lists_to_list\idm-p01-old-cprs.csv"
+$old_cprno_uuid = "C:\cprbroker.toolbox\misc\powershell-scripts\merge_cprno_uuid_lists_personmaster\old-cprbroker-cprno-uuid-semicolon.csv"
 $old_cprno_uuid_hash_table = @{}
 foreach($line in [System.IO.File]::ReadLines($old_cprno_uuid)) 
 {
@@ -74,7 +78,7 @@ foreach($cprNo in $merged_cprno_uuid_hash_table.keys)
     try 
     {
         $line_increment = [string]::Format("{0},{1}", $k, $v)
-        Add-Content -Path "C:\cprbroker.toolbox\misc\powershell-scripts\personmaster_cprno_uuid_lists_to_list\merged_cprno_uuid.csv" -Value $line_increment
+        Add-Content -Path "C:\cprbroker.toolbox\misc\powershell-scripts\merge_cprno_uuid_lists_personmaster\merged_old_and_new_cprbroker_cprno_uuid.csv" -Value $line_increment
     }
     catch 
     {
