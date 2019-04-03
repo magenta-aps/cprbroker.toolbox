@@ -1,0 +1,6 @@
+Note;EJER_NAVN;EJER_ADR;EJER_POSTADR
+Person i local cache, men invalid adresse;Asta Jakobsen ;Skovvej 77A ; 6800 Varde
+Person i local cache med valid adresse;Adam Jensen ;Nybrovej 304 st D-53 ; 2800 Kgs Lyngby 
+Person i ekstern data provider og invalid adresse;Jens Mortensen ;Industrivænget 95 1 mf;9000 Aalborg
+Ikke eksisterende person med invalid adresse;Inge Findsen ;Ingenvej 27 ; 9000 Varde
+Ikke eksisterende person med valid adresse;Inge Findsen ;Pilestræde 43, 2. th ;1112 København K
