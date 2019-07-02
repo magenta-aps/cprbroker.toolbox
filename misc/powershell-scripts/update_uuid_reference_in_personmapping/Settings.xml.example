@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<Settings>
+  <Database>
+    <CprBroker>
+      <Source></Source>
+      <InitialCatalog></InitialCatalog>
+      <UserId></UserId>
+      <Password></Password>
+    </CprBroker>
+  </Database>
+  <Paths>
+    <!-- File should be line-seperated where line like: {cprNo},{UUid} -->
+    <OldCprBroker>{Drive}:\{PATH_TO}\cprbroker.toolbox\misc\powershell-scripts\update_uuid_reference_in_personmapping\{FILE}.csv</OldCprBroker>
+  </Paths>
+</Settings>
+
